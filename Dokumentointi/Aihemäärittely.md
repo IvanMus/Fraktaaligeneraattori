@@ -5,7 +5,8 @@
 
 *Käyttäjät:* Kuka tahansa fraktaaleista kiinnostunut.
 
-*Toiminnot:*        
+*Toiminnot:*    
+    
     *Kuvien zoomaaminen
     *Iteraatiorajan muuttaminen
     *Funktion potenssin muuttaminen
