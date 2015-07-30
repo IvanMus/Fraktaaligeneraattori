@@ -1,0 +1,1 @@
+30.07 (2h): Repositorion ja projektin luominen, sek‰ aihem‰‰rittelyn kirjoittaminen.
