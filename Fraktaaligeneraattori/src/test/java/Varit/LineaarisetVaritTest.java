@@ -4,7 +4,6 @@
  */
 package Varit;
 
-import java.awt.Color;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,11 +15,11 @@ import static org.junit.Assert.*;
  *
  * @author Ivan
  */
-public class RandomVaritTest {
+public class LineaarisetVaritTest {
     
     Varit varit;
     
-    public RandomVaritTest() {
+    public LineaarisetVaritTest() {
     }
     
     @BeforeClass
@@ -33,7 +32,7 @@ public class RandomVaritTest {
     
     @Before
     public void setUp() {
-        varit=new RandomVarit(100);
+        varit=new LineaarisetVarit(100);
     }
     
     @After

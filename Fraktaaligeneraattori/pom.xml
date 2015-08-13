@@ -41,10 +41,14 @@
         <targetClasses>
             <param>Kompleksiluku*</param>
             <param>Varit*</param>
+            <param>Fraktaalinpiirturi*</param>
+            <param>Iteraattorit*</param>
         </targetClasses>
         <targetTests>
             <param>Kompleksiluku*</param>
             <param>Varit*</param>
+            <param>Fraktaalinpiirturi*</param>
+            <param>Iteraattorit*</param>
         </targetTests>
     </configuration>
         </plugin>

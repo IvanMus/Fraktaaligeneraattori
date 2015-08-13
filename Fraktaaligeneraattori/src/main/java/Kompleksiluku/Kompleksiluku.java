@@ -60,7 +60,7 @@ public class Kompleksiluku {
         if(xKoordinaatti==0 && yKoordinaatti==0) {
             return null;
         }
-        double pituusToiseen=xKoordinaatti*xKoordinaatti+yKoordinaatti*yKoordinaatti;
+        double pituusToiseen=pituusToiseen();
         return new Kompleksiluku(xKoordinaatti/pituusToiseen,-yKoordinaatti/pituusToiseen);
     }
     

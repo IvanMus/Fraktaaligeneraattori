@@ -18,8 +18,8 @@ public abstract class Varit {
        variTaulukko=new Color[varienMaara+1];
    }
    
-   public Color haeVari(int varinPaikkanumero) {
-       return variTaulukko[varinPaikkanumero];
+   public int haeVari(int varinPaikkanumero) {
+       return variTaulukko[varinPaikkanumero].getRGB();
    }
    
    public void muutaVarienMaara(int uusiVarienMaara) {
