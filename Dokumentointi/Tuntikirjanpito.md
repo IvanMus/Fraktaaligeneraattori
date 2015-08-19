@@ -8,4 +8,4 @@
             ja luokkakaavio.
             
 19.08 (4h): Luotu luokat graafisen käyttöliittymän näppäimistölle. Päivitetty testejä ja aihemäärittelyä, ja kirjoitettu
-            sekvenssikaavio zoomaamiselle ja potenssin muuttamiselle. Generoitu uusi pit-raportti.
+            sekvenssikaavio zoomaamiselle ja potenssin muuttamiselle. Generoitu uusi pit - raportti.
