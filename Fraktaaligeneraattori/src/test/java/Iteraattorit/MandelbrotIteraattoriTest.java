@@ -57,4 +57,9 @@ public class MandelbrotIteraattoriTest {
     public void OikeaIteraatioMaaraKunPotenssiNegatiivinenJaEiKaanteislukua() {
         assertEquals(1, iteraattori.iteroi(new Kompleksiluku(0, 0), 100, -3));
     }
+    
+    @Test
+    public void IteraattorinNimiOikein() {
+        assertEquals("Mandelbrot", iteraattori.toString());
+    }
 }

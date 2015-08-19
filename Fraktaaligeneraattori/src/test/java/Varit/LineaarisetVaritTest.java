@@ -52,5 +52,16 @@ public class LineaarisetVaritTest {
         varit.muutaVarienMaara(200);
         assertNotNull(varit.haeVari(0));
         assertNotNull(varit.haeVari(200));
+        assertEquals(201, varit.haeVarienMaara());
+    }
+    
+    @Test
+    public void varienMaaraOikein() {
+        assertEquals(101, varit.haeVarienMaara());
+    }
+    
+    @Test
+    public void VaritaulukonNimiOikein() {
+        assertEquals("Linear Colours", varit.toString());
     }
 }

@@ -57,4 +57,9 @@ public class BurningShipIteraattoriTest {
     public void OikeaIteraatioMaaraKunPotenssiNegatiivinenJaEiKaanteislukua() {
         assertEquals(1, iteraattori.iteroi(new Kompleksiluku(0, 0), 100, -1));
     }
+    
+    @Test
+    public void IteraattorinNimiOikein() {
+        assertEquals("Burning Ship", iteraattori.toString());
+    }
 }
