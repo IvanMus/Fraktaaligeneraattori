@@ -5,13 +5,15 @@
 package GraafinenKayttoliittyma;
 
 import FraktaalinPiirtoalusta.FraktaalinPiirtoalusta;
+import Nappaimisto.Nappaimisto;
+import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 /**
- *
+ * Luokka edustaa ohjelman graafista käyttöliittymää.
  * @author Ivan
  */
 public class GraafinenKayttoliittyma implements Runnable{
@@ -21,7 +23,7 @@ public class GraafinenKayttoliittyma implements Runnable{
     @Override
     public void run() {
         frame = new JFrame("Fraktaali");
-        frame.setPreferredSize(new Dimension(730, 730));
+        frame.setPreferredSize(new Dimension(900, 730));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         luoKomponentit(frame.getContentPane());
         frame.pack();
@@ -30,6 +32,7 @@ public class GraafinenKayttoliittyma implements Runnable{
     
     private void luoKomponentit(Container container) {
         FraktaalinPiirtoalusta piirtoalusta = new FraktaalinPiirtoalusta();
+        container.add(new Nappaimisto(piirtoalusta), BorderLayout.EAST);
         container.add(piirtoalusta);
     } 
 }

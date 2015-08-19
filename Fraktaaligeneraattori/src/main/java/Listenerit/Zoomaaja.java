@@ -9,7 +9,7 @@ import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 
 /**
- *
+ * Luokka vastaaa kuvan zoomaamisesta.
  * @author Ivan
  */
 public class Zoomaaja implements MouseWheelListener{
@@ -20,6 +20,12 @@ public class Zoomaaja implements MouseWheelListener{
         this.alusta = alusta;
     }
 
+    /**
+     * Metodi reagoi hiirenrullan liikuttamiseen, ja muuttaa piirettävän 
+     * fraktaalin koordinaatiston rajoja, riippuen siitä mihin
+     * suuntaan liikuttaminen tapahtuu.
+     * @param mwe 
+     */
     @Override
     public void mouseWheelMoved(MouseWheelEvent mwe) {
         if(mwe.getWheelRotation() < 0) {

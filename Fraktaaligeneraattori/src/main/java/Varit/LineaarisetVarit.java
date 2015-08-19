@@ -7,20 +7,28 @@ package Varit;
 import java.awt.Color;
 
 /**
- *
+ * Luokka alustaa fraktaalin piirtämiseen käytettävät värit väritaulukkoon.
  * @author Ivan
  */
 public class LineaarisetVarit extends Varit{
     
     public LineaarisetVarit(int varienMaara) {
-        super(varienMaara);
-        alustaVarit(varienMaara);        
+        super(varienMaara);        
     }
 
+    /**
+     * Metodi lisää väritaulukkoon värit.
+     * @param varienMaara 
+     */
     @Override
     protected final void alustaVarit(int varienMaara) {
         for (int i = 0; i <= varienMaara; i++) {
-            variTaulukko[i]=new Color((i+50)%256,(i+50)%256 ,(i+100)%256);
+            variTaulukko[i]=new Color((i+80)%256,(i+30)%256 ,i%90);
         }
+    }
+    
+    @Override
+    public String toString() {
+        return "Linear Colours"; 
     }
 }

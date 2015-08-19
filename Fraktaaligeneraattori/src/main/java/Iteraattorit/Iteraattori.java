@@ -7,7 +7,7 @@ package Iteraattorit;
 import Kompleksiluku.Kompleksiluku;
 
 /**
- *
+ * Rajapinta kaikille iteraattoreille.
  * @author Ivan
  */
 public interface Iteraattori {
