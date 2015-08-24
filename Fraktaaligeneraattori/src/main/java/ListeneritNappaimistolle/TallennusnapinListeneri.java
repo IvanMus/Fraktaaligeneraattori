@@ -23,5 +23,4 @@ public class TallennusnapinListeneri implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         alusta.tallennaKuva();
     }
-    
 }
