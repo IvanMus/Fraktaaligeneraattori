@@ -4,7 +4,8 @@
  */
 package Nappaimisto;
 
-import Listenerit.PaivitysnapinListeneri;
+import FraktaalinPiirtoalusta.FraktaalinPiirtoalusta;
+import ListeneritNappaimistolle.PaivitysnapinListeneri;
 import javax.swing.JButton;
 
 /**
@@ -13,9 +14,9 @@ import javax.swing.JButton;
  */
 public class PaivitaNappi extends JButton{
     
-    public PaivitaNappi(Nappaimisto nappaimisto) {
+    public PaivitaNappi(FraktaalinPiirtoalusta alusta) {
         super("Update");
-        this.addActionListener(new PaivitysnapinListeneri(nappaimisto));
+        this.addActionListener(new PaivitysnapinListeneri(alusta));
     }
     
 }

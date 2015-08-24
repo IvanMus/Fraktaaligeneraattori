@@ -4,6 +4,8 @@
  */
 package Nappaimisto;
 
+import FraktaalinPiirtoalusta.FraktaalinPiirtoalusta;
+import ListeneritNappaimistolle.VaritaulukkoValitsijanListeneri;
 import Varit.LineaarisetVarit;
 import Varit.RandomVarit;
 import Varit.Varit;
@@ -16,8 +18,9 @@ import javax.swing.JComboBox;
  */
 public class VaritaulukonValitsija extends JComboBox<Varit> {
     
-    public VaritaulukonValitsija() {
+    public VaritaulukonValitsija(FraktaalinPiirtoalusta alusta) {
         super.addItem(new RandomVarit(-1));
         super.addItem(new LineaarisetVarit(-1));
+        super.addActionListener(new VaritaulukkoValitsijanListeneri(alusta, this));
     }
 }

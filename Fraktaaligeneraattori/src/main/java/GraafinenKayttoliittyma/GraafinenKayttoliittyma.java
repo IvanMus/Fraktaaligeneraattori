@@ -23,7 +23,7 @@ public class GraafinenKayttoliittyma implements Runnable{
     @Override
     public void run() {
         frame = new JFrame("Fraktaali");
-        frame.setPreferredSize(new Dimension(900, 730));
+        frame.setPreferredSize(new Dimension(1070, 730));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         luoKomponentit(frame.getContentPane());
         frame.pack();

@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Listenerit;
+package ListeneritNappaimistolle;
 
-import Nappaimisto.Nappaimisto;
+import FraktaalinPiirtoalusta.FraktaalinPiirtoalusta;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,10 +14,10 @@ import java.awt.event.ActionListener;
  */
 public class PaivitysnapinListeneri implements ActionListener{
     
-    private final Nappaimisto nappaimisto;
+    private final FraktaalinPiirtoalusta alusta;
     
-    public PaivitysnapinListeneri(Nappaimisto nappaimisto) {
-        this.nappaimisto = nappaimisto;
+    public PaivitysnapinListeneri(FraktaalinPiirtoalusta alusta) {
+        this.alusta = alusta;
     }
     
     /**
@@ -27,6 +27,6 @@ public class PaivitysnapinListeneri implements ActionListener{
      */
     @Override
     public void actionPerformed(ActionEvent ae) {
-        nappaimisto.paivitaKuva();
+        alusta.paivitaKuva();
     }
 }

@@ -1,6 +1,7 @@
-package fraktaaligen.fraktaaligeneraattori;
+package Fraktaaligeneraattori;
 
 import GraafinenKayttoliittyma.GraafinenKayttoliittyma;
+import java.util.Scanner;
 import javax.swing.SwingUtilities;
 
 /**
@@ -13,4 +14,5 @@ public class App
     {
         SwingUtilities.invokeLater(new GraafinenKayttoliittyma());
     }
+    
 }

@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Listenerit;
+package ListeneritFraktaalinPiirtoalustalle;
 
 import FraktaalinPiirtoalusta.FraktaalinPiirtoalusta;
 import java.awt.event.MouseWheelEvent;
@@ -39,5 +39,4 @@ public class Zoomaaja implements MouseWheelListener{
             }
         }
     }
-    
 }

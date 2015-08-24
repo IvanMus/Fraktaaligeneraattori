@@ -28,6 +28,7 @@ public class RandomVarit extends Varit{
         for (int i = 0; i <= varienMaara; i++) {
             variTaulukko[i]=new Color(arpoja.nextInt(256), arpoja.nextInt(256), arpoja.nextInt(256), arpoja.nextInt(256));
         }
+        vaatiikoLineaarisetVaritAlustusta = false;
     }
     
     @Override

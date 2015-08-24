@@ -4,9 +4,11 @@
  */
 package Nappaimisto;
 
+import FraktaalinPiirtoalusta.FraktaalinPiirtoalusta;
 import Iteraattorit.BurningShipIteraattori;
 import Iteraattorit.Iteraattori;
 import Iteraattorit.MandelbrotIteraattori;
+import ListeneritNappaimistolle.IteraattoriValitsijanListeneri;
 import javax.swing.JComboBox;
 
 /**
@@ -16,9 +18,10 @@ import javax.swing.JComboBox;
  */
 public class IteraattorinValitsija extends JComboBox<Iteraattori> {
     
-    public IteraattorinValitsija() {
+    public IteraattorinValitsija(FraktaalinPiirtoalusta alusta) {
         super.addItem(new MandelbrotIteraattori());
         super.addItem(new BurningShipIteraattori());
+        super.addActionListener(new IteraattoriValitsijanListeneri(alusta, this));
     } 
    
 }
