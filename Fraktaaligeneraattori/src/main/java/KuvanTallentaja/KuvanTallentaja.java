@@ -6,10 +6,7 @@ package KuvanTallentaja;
 
 import Fraktaalinpiirturi.Fraktaalinpiirturi;
 import java.awt.GridLayout;
-import java.awt.HeadlessException;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -17,19 +14,30 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
+ * Luokka vastaa fraktaalikuvan tallentamisesta työpöydälle.
  *
  * @author Ivan
  */
 public class KuvanTallentaja {
 
+    /**
+     * Taulukko resoluutioista kuvan tallentamista varten.
+     */
     private JComboBox<String> resoluutiot = new JComboBox();
 
+    /**
+     * Metodi hakee parametrina annetusta piirturista nykyisen kuvan, ja
+     * tallentaa sen työpöydälle.
+     *
+     * @param piirturi
+     */
     public void tallennaKuva(Fraktaalinpiirturi piirturi) {
-        int valinta = JOptionPane.showConfirmDialog(null, luoValikkoResoluutiolleJaTiedostopolulle(), "Save", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+        int valinta = JOptionPane.showConfirmDialog(null, luoValikkoResoluutiolle(), "Save", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (valinta == JOptionPane.OK_OPTION) {
             try {
                 File tiedosto = tiedosto();
-                ImageIO.write(piirturi.piirraFraktaali(palautaResoluutio(resoluutiot.getSelectedIndex())[0], palautaResoluutio(resoluutiot.getSelectedIndex())[1]), "png", tiedosto);
+                int[] resoluutiotTaulukko = palautaResoluutiot(resoluutiot.getSelectedIndex());
+                ImageIO.write(piirturi.piirraFraktaali(resoluutiotTaulukko[0], resoluutiotTaulukko[1]), "png", tiedosto);
                 JOptionPane.showMessageDialog(null, "Image saved to Desktop!", "Success", JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "An error occured!", "Error", JOptionPane.ERROR_MESSAGE);
@@ -37,11 +45,16 @@ public class KuvanTallentaja {
         }
     }
 
+    /**
+     * Metodi palauttaa tiedoston, johon kuva tallennetaan.
+     *
+     * @return
+     */
     private File tiedosto() {
-        File tiedosto = new File(System.getProperty("user.home") + File.separator + "desktop" + File.separator + "Fractal.png");
+        File tiedosto = new File(System.getProperty("user.home") + File.separator + "Desktop" + File.separator + "Fractal.png");
         if (tiedosto.exists()) {
             for (int i = 1; i < 1000; i++) {
-                String tiedostopolku = System.getProperty("user.home") + File.separator + "desktop" + File.separator + "Fractal" + i + ".png";
+                String tiedostopolku = System.getProperty("user.home") + File.separator + "Desktop" + File.separator + "Fractal" + i + ".png";
                 tiedosto = new File(tiedostopolku);
                 if (!tiedosto.exists()) {
                     return tiedosto;
@@ -52,7 +65,12 @@ public class KuvanTallentaja {
         return tiedosto;
     }
 
-    private JComboBox<String> alustaResoluutiot() {
+    /**
+     * Metodi alustaa eri resoluutiot oliomuuttujaan resoluutiot.
+     *
+     * @return
+     */
+    private void alustaResoluutiot() {
         resoluutiot.addItem("640x480");
         resoluutiot.addItem("720x400");
         resoluutiot.addItem("1360x786");
@@ -61,10 +79,16 @@ public class KuvanTallentaja {
         resoluutiot.addItem("1600x900");
         resoluutiot.addItem("1600x1200");
         resoluutiot.addItem("1920x1080");
-        return resoluutiot;
     }
 
-    private int[] palautaResoluutio(int paikka) {
+    /**
+     * Metodi palauttaa kaksipaikkaisen taulukon, josta poimitaan resoluutiot
+     * fraktaalikuvion piirtoon.
+     *
+     * @param paikka
+     * @return
+     */
+    private int[] palautaResoluutiot(int paikka) {
         if (paikka == 0) {
             int[] palautettava = {640, 480};
             return palautettava;
@@ -91,11 +115,18 @@ public class KuvanTallentaja {
         return palautettava;
     }
 
-    private JPanel luoValikkoResoluutiolleJaTiedostopolulle() {
+    /**
+     * Metodi palauttaa JPanelin, joka toimii valikkona resoluution
+     * valitsemiselle.
+     *
+     * @return
+     */
+    private JPanel luoValikkoResoluutiolle() {
         JPanel valikko = new JPanel();
         valikko.setLayout(new GridLayout(2, 1));
         valikko.add(new JLabel("Choose resolution:"));
-        valikko.add(alustaResoluutiot());
+        valikko.add(resoluutiot);
+        alustaResoluutiot();
         return valikko;
     }
 }

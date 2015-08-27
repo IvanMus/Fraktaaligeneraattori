@@ -9,12 +9,12 @@ import ListeneritNappaimistolle.PaivitysnapinListeneri;
 import javax.swing.JButton;
 
 /**
- *
+ * Luokasta luodaan nappi, jolla kuvaa päivitetään.
  * @author Ivan
  */
 public class PaivitaNappi extends JButton{
     
-    public PaivitaNappi(FraktaalinPiirtoalusta alusta) {
+    protected PaivitaNappi(FraktaalinPiirtoalusta alusta) {
         super("Update");
         this.addActionListener(new PaivitysnapinListeneri(alusta));
     }

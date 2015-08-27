@@ -14,10 +14,11 @@ import javax.swing.WindowConstants;
 
 /**
  * Luokka edustaa ohjelman graafista käyttöliittymää.
+ *
  * @author Ivan
  */
-public class GraafinenKayttoliittyma implements Runnable{
-    
+public class GraafinenKayttoliittyma implements Runnable {
+
     private JFrame frame;
 
     @Override
@@ -29,10 +30,15 @@ public class GraafinenKayttoliittyma implements Runnable{
         frame.pack();
         frame.setVisible(true);
     }
-    
+
+    /**
+     * Metodi luo käyttöliittymän komponentit.
+     *
+     * @param container
+     */
     private void luoKomponentit(Container container) {
         FraktaalinPiirtoalusta piirtoalusta = new FraktaalinPiirtoalusta();
         container.add(new Nappaimisto(piirtoalusta), BorderLayout.EAST);
         container.add(piirtoalusta);
-    } 
+    }
 }

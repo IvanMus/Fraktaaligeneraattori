@@ -13,12 +13,12 @@ import javax.swing.JComboBox;
 
 /**
  * Luokka tarjoaa mahdollisuuden lisätä graafisen käyttöliittymän valikkoon
- * erilaisia iteraattoireita.
+ * erilaisia iteraattoreita.
  * @author Ivan
  */
 public class IteraattorinValitsija extends JComboBox<Iteraattori> {
     
-    public IteraattorinValitsija(FraktaalinPiirtoalusta alusta) {
+    protected IteraattorinValitsija(FraktaalinPiirtoalusta alusta) {
         super.addItem(new MandelbrotIteraattori());
         super.addItem(new BurningShipIteraattori());
         super.addActionListener(new IteraattoriValitsijanListeneri(alusta, this));

@@ -18,7 +18,9 @@ public class LineaarisetVarit extends Varit {
     }
 
     /**
-     * Metodi lisää väritaulukkoon värit.
+     * Metodi lisää väritaulukkoon värit, ja asettaa yläluokan oliomuuttujan
+     * vaatiikoLineaarisetVaritAlustusta falseksi, alustamisen juuri
+     * tapahduttua.
      *
      * @param varienMaara
      */
@@ -27,6 +29,7 @@ public class LineaarisetVarit extends Varit {
         for (int i = 0; i <= varienMaara; i++) {
             variTaulukko[i] = new Color(i % punaisenVarinYlaraja + punaisenVarinAlaraja, i % vihreanVarinYlaraja + vihreanVarinAlaraja, i % sinisenVarinYlaraja + sinisenVarinAlaraja);
         }
+        vaatiikoLineaarisetVaritAlustusta = false;
     }
 
     @Override

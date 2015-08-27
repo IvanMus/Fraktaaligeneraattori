@@ -19,14 +19,46 @@ import java.awt.image.BufferedImage;
  */
 public class Fraktaalinpiirturi {
 
+    /**
+     * Muuttuja vastaa kuvitteellisen koordinaatiston x-koordinaattien ylärajaa.
+     */
     private double koordinaatistonXylaraja = 2;
+    /**
+     * Muuttuja vastaa kuvitteellisen koordinaatiston x-koordinaattien alarajaa.
+     */
     private double koordinaatistonXalaraja = -2;
+    /**
+     * Muuttuja vastaa kuvitteellisen koordinaatiston y-koordinaattien ylärajaa.
+     */
     private double koordinaatistonYylaraja = 2;
+    /**
+     * Muuttuja vastaa kuvitteellisen koordinaatiston y-koordinaattien alarajaa.
+     */
     private double koordinaatistonYalaraja = -2;
+    /**
+     * Muuttuja vastaa fraktaalin piirtämiseen käytettävän iteratiivisen
+     * funktion potenssi-parametria.
+     */
     private int potenssi = 2;
+    /**
+     * Muuttuja kertoo kuinka monta iteratiivisen funktion iteraatioita max.
+     * tehdään.
+     */
     private int iteraatioraja = 1000;
+    /**
+     * Iteratiivinen funktio jota käytetään fraktaalin piirtämiseen.
+     */
     private Iteraattori iteraattori = new MandelbrotIteraattori();
+    /**
+     * Väritaulukko josta pikselin värittämiseen käytettävät värit poimitaan.
+     */
     private Varit varitaulukko = new RandomVarit(1000);
+    /**
+     * Muuttuja jota käytetään tarkistamaan zoomauksen laillisuus, jotta ohjelma
+     * ei kaatuisi.
+     *
+     * @see ListeneritFraktaalinPiirtoalustalle.Zoomaaja
+     */
     private int zoomausKerroin = 0;
 
     /**
@@ -216,14 +248,32 @@ public class Fraktaalinpiirturi {
         koordinaatistonYylaraja = 2;
     }
 
+    /**
+     * Metodi muuttaa punaisen värin rajoja parametreina annetuilla rajoilla.
+     *
+     * @param alaraja
+     * @param ylaraja
+     */
     public void muutaPunaisenVarinRajoja(int alaraja, int ylaraja) {
         varitaulukko.muutaPunaisenVarinRajoja(alaraja, ylaraja);
     }
 
+    /**
+     * Metodi muuttaa vihreän värin rajoja parametreina annetuilla rajoilla.
+     *
+     * @param alaraja
+     * @param ylaraja
+     */
     public void muutaVihreanVarinRajoja(int alaraja, int ylaraja) {
         varitaulukko.muutaVihreanVarinRajoja(alaraja, ylaraja);
     }
 
+    /**
+     * Metodi muuttaa sinisen värin rajoja parametreina annetuilla rajoilla.
+     *
+     * @param alaraja
+     * @param ylaraja
+     */
     public void muutaSinisenVarinRajoja(int alaraja, int ylaraja) {
         varitaulukko.muutaSinisenVarinRajoja(alaraja, ylaraja);
     }

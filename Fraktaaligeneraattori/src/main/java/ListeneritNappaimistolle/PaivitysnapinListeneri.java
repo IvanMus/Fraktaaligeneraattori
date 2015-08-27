@@ -9,21 +9,28 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Luokka vastaa graafisen käyttöliittymän "Päivitä" napin toiminnasta.
+ * Luokasta luodaan listeneri, jolla tarkkaillaan Päivitysnapin painalluksia.
+ *
+ * @see Nappaimisto.PaivitaNappi
  * @author Ivan
  */
-public class PaivitysnapinListeneri implements ActionListener{
-    
+public class PaivitysnapinListeneri implements ActionListener {
+
+    /**
+     * FraktaalinPiirtoalusta jota kautta muutokset välitetään.
+     */
     private final FraktaalinPiirtoalusta alusta;
-    
+
     public PaivitysnapinListeneri(FraktaalinPiirtoalusta alusta) {
         this.alusta = alusta;
     }
-    
+
     /**
      * Metodi tarkkailee graafisen käyttöliittymän "Update" napin painalluksia,
-     * ja aina kun nappia painetaan, niin metodi piirtää fraktaalista uuden kuvan.
-     * @param ae 
+     * ja aina kun nappia painetaan, niin metodi piirtää fraktaalista uuden
+     * kuvan.
+     *
+     * @param ae
      */
     @Override
     public void actionPerformed(ActionEvent ae) {

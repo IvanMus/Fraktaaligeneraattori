@@ -13,13 +13,38 @@ import java.awt.Color;
  */
 public abstract class Varit {
 
+    /**
+     * Väritaulukko josta pikselin värittämiseen käytettävät värit poimitaan.
+     */
     protected Color[] variTaulukko;
+    /**
+     * Totuuarvoinen muuttuja, joka muuttuu todeksi, kun RGB-väriasetuksia
+     * säädetään.
+     */
     protected boolean vaatiikoLineaarisetVaritAlustusta = false;
+    /**
+     * RGB-värimallin punaisen värin yläraja.
+     */
     protected int punaisenVarinYlaraja = 256;
+    /**
+     * RGB-värimallin punaisen värin alaraja.
+     */
     protected int punaisenVarinAlaraja = 0;
+    /**
+     * RGB-värimallin vihreän värin yläraja.
+     */
     protected int vihreanVarinYlaraja = 256;
+    /**
+     * RGB-värimallin vihreän värin alaraja.
+     */
     protected int vihreanVarinAlaraja = 0;
+    /**
+     * RGB-värimallin sinisen värin yläraja.
+     */
     protected int sinisenVarinYlaraja = 256;
+    /**
+     * RGB-värimallin sinisen värin alaraja.
+     */
     protected int sinisenVarinAlaraja = 0;
 
     protected Varit(int varienMaara) {
@@ -58,6 +83,12 @@ public abstract class Varit {
         return variTaulukko.length;
     }
 
+    /**
+     * Metodi alustaa värien ylä- ja alarajat vanhasta väritaulukosta, kun
+     * Fraktaalinpiirturin väritaulukkoa vaihdetaan.
+     *
+     * @param taulukko
+     */
     public void alustaUuteenTaulukkoonVanhanRGBrajat(Varit taulukko) {
         taulukko.punaisenVarinAlaraja = this.punaisenVarinAlaraja;
         taulukko.punaisenVarinYlaraja = this.punaisenVarinYlaraja;
@@ -67,6 +98,13 @@ public abstract class Varit {
         taulukko.sinisenVarinYlaraja = this.sinisenVarinYlaraja;
     }
 
+    /**
+     * Metodi muuttaa punaisen värin rajoja parametreina annetuilla rajoilla,
+     * mikäli sallittua. Lisäksi asettaa LineaarisetVarit alustettaviksi.
+     *
+     * @param alaraja
+     * @param ylaraja
+     */
     public void muutaPunaisenVarinRajoja(int alaraja, int ylaraja) {
         if (ylaraja > alaraja) {
             punaisenVarinAlaraja = alaraja;
@@ -75,6 +113,13 @@ public abstract class Varit {
         }
     }
 
+    /**
+     * Metodi muuttaa vihreän värin rajoja parametreina annetuilla rajoilla,
+     * mikäli sallittua. Lisäksi asettaa LineaarisetVarit alustettaviksi.
+     *
+     * @param alaraja
+     * @param ylaraja
+     */
     public void muutaVihreanVarinRajoja(int alaraja, int ylaraja) {
         if (ylaraja > alaraja) {
             vihreanVarinAlaraja = alaraja;
@@ -83,6 +128,13 @@ public abstract class Varit {
         }
     }
 
+    /**
+     * Metodi muuttaa sinisen värin rajoja parametreina annetuilla rajoilla,
+     * mikäli sallittua. Lisäksi asettaa LineaarisetVarit alustettaviksi.
+     *
+     * @param alaraja
+     * @param ylaraja
+     */
     public void muutaSinisenVarinRajoja(int alaraja, int ylaraja) {
         if (ylaraja > alaraja) {
             sinisenVarinAlaraja = alaraja;
@@ -91,6 +143,11 @@ public abstract class Varit {
         }
     }
 
+    /**
+     * Metodi tarkistaa, että Fraktaalinpiirturin nykyinen väritaulukko on
+     * lähtöisin LineaarissetVarit-luokasta ja vaatiiko väritaulukko
+     * alustamista. Mikäli näin on, väritaulukko alustetaan.
+     */
     public void alustaJosLineaarisetVaritVaativat() {
         if (this.toString().equals("Linear Colours") && vaatiikoLineaarisetVaritAlustusta) {
             this.muutaVarienMaara(variTaulukko.length);

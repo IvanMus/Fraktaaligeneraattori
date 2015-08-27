@@ -20,6 +20,9 @@ import javax.swing.JPanel;
  */
 public class FraktaalinPiirtoalusta extends JPanel {
 
+    /**
+     * Olio joka piirtää fraktaalin.
+     */
     private Fraktaalinpiirturi fraktaalinpiirturi = new Fraktaalinpiirturi();
 
     public FraktaalinPiirtoalusta() {
@@ -119,23 +122,50 @@ public class FraktaalinPiirtoalusta extends JPanel {
         fraktaalinpiirturi.vaihdaVaritaulukko(varitaulukko);
     }
 
+    /**
+     * Metodi muuttaa punaisen värin rajoja parametreina annetuilla rajoilla.
+     *
+     * @param alaraja
+     * @param ylaraja
+     */
     public void muutaPunaisenVarinRajoja(int alaraja, int ylaraja) {
         fraktaalinpiirturi.muutaPunaisenVarinRajoja(alaraja, ylaraja);
     }
 
+    /**
+     * Metodi muuttaa vihreän värin rajoja parametreina annetuilla rajoilla.
+     *
+     * @param alaraja
+     * @param ylaraja
+     */
     public void muutaVihreanVarinRajoja(int alaraja, int ylaraja) {
         fraktaalinpiirturi.muutaVihreanVarinRajoja(alaraja, ylaraja);
     }
 
+    /**
+     * Metodi muuttaa sinisen värin rajoja parametreina annetuilla rajoilla.
+     *
+     * @param alaraja
+     * @param ylaraja
+     */
     public void muutaSinisenVarinRajoja(int alaraja, int ylaraja) {
         fraktaalinpiirturi.muutaSinisenVarinRajoja(alaraja, ylaraja);
     }
 
+    /**
+     * Metodi tallentaa kuvan fraktaalista.
+     */
     public void tallennaKuva() {
         KuvanTallentaja tallentaja = new KuvanTallentaja();
         tallentaja.tallennaKuva(fraktaalinpiirturi);
     }
 
+    /**
+     * Metodi palauttaa Fraktaalinpiirturin oliomuuttujan zoomauskerroin.
+     *
+     * @see Fraktaalinpiirturi.Fraktaalinpiirturi
+     * @return
+     */
     public int getZoomauskerroin() {
         return fraktaalinpiirturi.getZoomauskerroin();
     }

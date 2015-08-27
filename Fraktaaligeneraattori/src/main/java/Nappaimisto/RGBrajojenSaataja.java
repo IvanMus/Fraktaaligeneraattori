@@ -15,12 +15,14 @@ import javax.swing.JPanel;
 import javax.swing.JSlider;
 
 /**
+ * Luokka luo paneelin RGB-värimallin tietylle värille, josta säädellään tämän
+ * värin ylä- ja alarajaa.
  *
  * @author Ivan
  */
 public class RGBrajojenSaataja extends JPanel {
 
-    public RGBrajojenSaataja(FraktaalinPiirtoalusta alusta, String ylarajanNimi, String alarajanNimi, int RGBListenerinNumero) {
+    protected RGBrajojenSaataja(FraktaalinPiirtoalusta alusta, String ylarajanNimi, String alarajanNimi, int RGBListenerinNumero) {
         super.setLayout(new GridLayout(4, 1));
         JSlider varinYlaraja = new JSlider(JSlider.HORIZONTAL, 0, 256, 256);
         JSlider varinAlaraja = new JSlider(JSlider.HORIZONTAL, 0, 256, 0);
@@ -33,6 +35,12 @@ public class RGBrajojenSaataja extends JPanel {
 
     }
 
+    /**
+     * Metodi alustaa värin ylä- ja alaraja sliderit merkein.
+     *
+     * @param varinAlaraja
+     * @param varinYlaraja
+     */
     private void alustaVariSlideritMerkein(JSlider varinAlaraja, JSlider varinYlaraja) {
         Hashtable sliderinMerkit = new Hashtable();
         sliderinMerkit.put(new Integer(0), new JLabel("0"));
@@ -43,6 +51,16 @@ public class RGBrajojenSaataja extends JPanel {
         varinYlaraja.setPaintLabels(true);
     }
 
+    /**
+     * Metodi lisää värin ylä- ja alaraja slidreihin Listenerin, joka säätää
+     * kyseisiä asetuksia Varit-luokassa. ListenerinNumerosta tiedetään mille
+     * värille listeneri lisätään.
+     *
+     * @param alusta
+     * @param listenerinNumero
+     * @param varinAlaraja
+     * @param varinYlaraja
+     */
     private void alustaSlidereihinVariListeneri(FraktaalinPiirtoalusta alusta, int listenerinNumero, JSlider varinAlaraja, JSlider varinYlaraja) {
         if (listenerinNumero == 1) {
             lisaaPunaisenvarinListeneri(alusta, varinAlaraja, varinYlaraja);
@@ -53,18 +71,42 @@ public class RGBrajojenSaataja extends JPanel {
         }
     }
 
+    /**
+     * Metodi alustaa värin ylä- ja alaraja slidereihin listenerin punaiselle
+     * värille.
+     *
+     * @param alusta
+     * @param varinAlaraja
+     * @param varinYlaraja
+     */
     private void lisaaPunaisenvarinListeneri(FraktaalinPiirtoalusta alusta, JSlider varinAlaraja, JSlider varinYlaraja) {
         PunaisenvarinListeneri listeneri = new PunaisenvarinListeneri(alusta, varinAlaraja, varinYlaraja);
         varinAlaraja.addChangeListener(listeneri);
         varinYlaraja.addChangeListener(listeneri);
     }
 
+    /**
+     * Metodi alustaa värin ylä- ja alaraja slidereihin listenerin vihreälle
+     * värille.
+     *
+     * @param alusta
+     * @param varinAlaraja
+     * @param varinYlaraja
+     */
     private void lisaaVihreanvarinListeneri(FraktaalinPiirtoalusta alusta, JSlider varinAlaraja, JSlider varinYlaraja) {
         VihreanvarinListeneri listeneri = new VihreanvarinListeneri(alusta, varinAlaraja, varinYlaraja);
         varinAlaraja.addChangeListener(listeneri);
         varinYlaraja.addChangeListener(listeneri);
     }
 
+    /**
+     * Metodi alustaa värin ylä- ja alaraja slidereihin listenerin siniselle
+     * värille.
+     *
+     * @param alusta
+     * @param varinAlaraja
+     * @param varinYlaraja
+     */
     private void lisaaSinisenvarinListeneri(FraktaalinPiirtoalusta alusta, JSlider varinAlaraja, JSlider varinYlaraja) {
         SinisenvarinListeneri listeneri = new SinisenvarinListeneri(alusta, varinAlaraja, varinYlaraja);
         varinAlaraja.addChangeListener(listeneri);

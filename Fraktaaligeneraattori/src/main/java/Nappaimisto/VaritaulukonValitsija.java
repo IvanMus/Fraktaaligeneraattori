@@ -18,7 +18,7 @@ import javax.swing.JComboBox;
  */
 public class VaritaulukonValitsija extends JComboBox<Varit> {
     
-    public VaritaulukonValitsija(FraktaalinPiirtoalusta alusta) {
+    protected VaritaulukonValitsija(FraktaalinPiirtoalusta alusta) {
         super.addItem(new RandomVarit(-1));
         super.addItem(new LineaarisetVarit(-1));
         super.addActionListener(new VaritaulukkoValitsijanListeneri(alusta, this));

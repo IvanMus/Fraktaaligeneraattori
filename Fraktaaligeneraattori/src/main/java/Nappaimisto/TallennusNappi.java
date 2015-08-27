@@ -9,12 +9,12 @@ import ListeneritNappaimistolle.TallennusnapinListeneri;
 import javax.swing.JButton;
 
 /**
- *
+ * Luokka luo tallennusnapin kuvan tallentamista varten.
  * @author Ivan
  */
 public class TallennusNappi extends JButton {
     
-    public TallennusNappi(FraktaalinPiirtoalusta alusta) {
+    protected TallennusNappi(FraktaalinPiirtoalusta alusta) {
         super("Save Image");
         super.addActionListener(new TallennusnapinListeneri(alusta));
     }

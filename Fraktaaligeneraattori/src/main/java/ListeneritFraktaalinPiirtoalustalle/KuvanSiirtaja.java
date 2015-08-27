@@ -9,29 +9,33 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 /**
- * Luokka vastaa kuvan keskittämisestä tiettyyn pikseliin, riippuen siitä
- * mihin klikataan.
+ * Luokka vastaa kuvan keskittämisestä tiettyyn pikseliin, riippuen siitä mihin
+ * klikataan.
+ *
  * @author Ivan
  */
-public class KuvanSiirtaja implements MouseListener{
-    
+public class KuvanSiirtaja implements MouseListener {
+
+    /**
+     * FraktaalinPiirtoalusta jota kautta muutokset välitetään.
+     */
     private final FraktaalinPiirtoalusta alusta;
-    
+
     public KuvanSiirtaja(FraktaalinPiirtoalusta alusta) {
         this.alusta = alusta;
     }
-    
+
     /**
      * Metodi tarkkailee hiiren klikkauksia, ja perustuen siihen mihin kohtaan
      * kuvaa klikataan, muuttaa klikatun pikselin uudeksi keskipisteeksi.
-     * @param me 
+     *
+     * @param me
      */
-
     @Override
     public void mouseClicked(MouseEvent me) {
-        if(me.getButton() == 1) {
-        alusta.vaihdaKeskipiste(me.getX(), me.getY());
-        }         
+        if (me.getButton() == 1) {
+            alusta.vaihdaKeskipiste(me.getX(), me.getY());
+        }
     }
 
     @Override
@@ -49,5 +53,4 @@ public class KuvanSiirtaja implements MouseListener{
     @Override
     public void mouseExited(MouseEvent me) {
     }
-    
 }
