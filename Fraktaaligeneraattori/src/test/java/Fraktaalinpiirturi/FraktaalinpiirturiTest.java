@@ -44,7 +44,7 @@ public class FraktaalinpiirturiTest {
     
     @Test
     public void kuvanPalauttaminenToimii() {
-        assertEquals(new BufferedImage(1, 1, 1).getClass(), piirturi.piirraFraktaali(1, 1).getClass());
+        assertEquals(new BufferedImage(1, 1, 1).getClass(), piirturi.palautaFraktaali(1, 1).getClass());
     }
     
     @Test

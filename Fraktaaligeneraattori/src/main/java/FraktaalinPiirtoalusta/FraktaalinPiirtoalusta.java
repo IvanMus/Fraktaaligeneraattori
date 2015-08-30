@@ -33,7 +33,7 @@ public class FraktaalinPiirtoalusta extends JPanel {
     @Override
     public void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
-        graphics.drawImage(fraktaalinpiirturi.piirraFraktaali(this.getWidth(), this.getHeight()), 0, 0, null);
+        graphics.drawImage(fraktaalinpiirturi.palautaFraktaali(this.getWidth(), this.getHeight()), 0, 0, null);
     }
 
     /**

@@ -62,29 +62,45 @@ public class Fraktaalinpiirturi {
     private int zoomausKerroin = 0;
 
     /**
-     * Metodi piirtää kuvan fraktaalista, jonka leveys ja korkeus määräytyvät
-     * annetuista parametreista.
+     * Metodi hoitaa tarvittavat alustukset ennen fraktaalinpiirtoa, kuten
+     * varitaulukon alustuksen, jos käyttäjä muuttanut värirajoja, ja ulkoistaa
+     * fraktaalin piirron toiselle metodille. Tämän jälkeen palautetaan valmis
+     * kuva.
      *
      * @param pikseleitaHorisontaalisesti
      * @param pikseleitaVertikaalisti
      * @return
      */
-    public BufferedImage piirraFraktaali(int pikseleitaHorisontaalisesti, int pikseleitaVertikaalisti) {
+    public BufferedImage palautaFraktaali(int pikseleitaHorisontaalisesti, int pikseleitaVertikaalisti) {
         BufferedImage palautettavaKuva = new BufferedImage(pikseleitaHorisontaalisesti, pikseleitaVertikaalisti, 2);
         varitaulukko.alustaJosLineaarisetVaritVaativat();
-        int varitettavaXkoordinaatti = 0;
-        int varitettavaYkoordinaatti;
         double piirtovaliVaakasunnassa = (koordinaatistonXylaraja - koordinaatistonXalaraja) / pikseleitaHorisontaalisesti;
         double piirtovaliPystysuunnassa = (koordinaatistonYylaraja - koordinaatistonYalaraja) / pikseleitaVertikaalisti;
-        for (double i = koordinaatistonXalaraja + piirtovaliVaakasunnassa / 2; i <= koordinaatistonXylaraja; i += piirtovaliVaakasunnassa) {
+        piirraFraktaali(piirtovaliVaakasunnassa, piirtovaliPystysuunnassa, palautettavaKuva);
+        return palautettavaKuva;
+    }
+
+    /**
+     * Metodi piirtaa fraktaalin välitettyyn BufferedImageen. Piirtovalit taas
+     * siirtavat kompleksilukua eteenpäin kuvitteellisessa koordinaatistossa.
+     *
+     * @param piirtovaliVaakasuunnassa
+     * @param piirtovaliPystysuunnassa
+     * @param piirrettavaKuva
+     */
+    private void piirraFraktaali(double piirtovaliVaakasuunnassa, double piirtovaliPystysuunnassa, BufferedImage piirrettavaKuva) {
+        int varitettavaXkoordinaatti = 0;
+        int varitettavaYkoordinaatti;
+        int vari;
+        for (double i = koordinaatistonXalaraja + piirtovaliVaakasuunnassa / 2; i <= koordinaatistonXylaraja; i += piirtovaliVaakasuunnassa) {
             varitettavaYkoordinaatti = 0;
             for (double j = koordinaatistonYalaraja + piirtovaliPystysuunnassa / 2; j <= koordinaatistonYylaraja; j += piirtovaliPystysuunnassa) {
-                palautettavaKuva.setRGB(varitettavaXkoordinaatti, varitettavaYkoordinaatti, varitaulukko.haeVari(iteraattori.iteroi(new Kompleksiluku(i, j), iteraatioraja, potenssi)));
+                vari = varitaulukko.haeVari(iteraattori.iteroi(new Kompleksiluku(i, j), iteraatioraja, potenssi));
+                piirrettavaKuva.setRGB(varitettavaXkoordinaatti, varitettavaYkoordinaatti, vari);
                 varitettavaYkoordinaatti++;
             }
             varitettavaXkoordinaatti++;
         }
-        return palautettavaKuva;
     }
 
     /**

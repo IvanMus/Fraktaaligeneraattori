@@ -37,7 +37,7 @@ public class KuvanTallentaja {
             try {
                 File tiedosto = tiedosto();
                 int[] resoluutiotTaulukko = palautaResoluutiot(resoluutiot.getSelectedIndex());
-                ImageIO.write(piirturi.piirraFraktaali(resoluutiotTaulukko[0], resoluutiotTaulukko[1]), "png", tiedosto);
+                ImageIO.write(piirturi.palautaFraktaali(resoluutiotTaulukko[0], resoluutiotTaulukko[1]), "png", tiedosto);
                 JOptionPane.showMessageDialog(null, "Image saved to Desktop!", "Success", JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "An error occured!", "Error", JOptionPane.ERROR_MESSAGE);
