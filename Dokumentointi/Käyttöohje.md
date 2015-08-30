@@ -17,3 +17,8 @@ ollaan säätämässä RGB-värimallista. Kun tarvittavat säädöt on tehty, niin käyttä
 ohjelma piirtää uuden kuvan käyttäen näppäimistön sen hetkisiä asetuksia. Käyttäjällä on myös mahdollisuus tallentaa 
 piirretty kuva (png muodossa) Save Image - napista. Tällöin ohjelma vielä kysyy millä resoluutiolla tallentaminen 
 tapahtuu, minkä jälkeen tallennettu kuva ilmestyy työpöydälle.  
+
+Lisähuomio: Iteraatiorajan tai potenssin muuttaminen voi lisätä laskenta-aikaa. Nyrkkisääntönä on että mitä suurempi
+potenssi on itseisarvoltaan, niin sitä kauemmin kuvan piirto kestää. Iteraatiorajan laskeminen on varma tapa korjata 
+ongelma, tosin kuvatkaan eivät ole tällöin yhtä yksityiskohtaisia. Iteraatiorajalla 100 ohjelma toimii kuitenkin 
+huomattavasti nopeammin kuin iteraatiorajalla 1000.
