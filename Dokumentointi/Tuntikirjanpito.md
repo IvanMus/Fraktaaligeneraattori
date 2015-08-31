@@ -14,3 +14,7 @@
             listenerit niiden toiminnoille.
 
 27.08 (4h): Päivitetty JavaDocia, luokkakaaviota, aihemäärittelyä ja pit-raporttia. Lisätty uusia sekvenssikaavioita. 
+
+30.08 (2h): Dokumentoinnin viimeistely.
+
+31.08 (0.5h): Koodin tarkastelua ja viilausta.
